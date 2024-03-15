@@ -1,0 +1,143 @@
+/* Header.css */
+
+/* Navbar Section */
+.sticky {
+  background-color: #1b1a2ea9;
+  transition: all 0.3s ease-out 0s;
+  box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171);
+  backdrop-filter: blur(15px);
+}
+
+.navbar {
+  background-color: gray;
+  position: fixed;
+  top: 0; /* Ensures the navbar is always at the top */
+  width: 100%; /* Takes up the full width of the viewport */
+  transition: all 0.3s ease-out 0s;
+  padding: 0.3rem 2rem;
+  font-size: 1.2rem;
+  z-index: 1000; /* Ensures the navbar is above other content */
+}
+
+.navbar-toggler {
+  position: relative;
+  background-color: gray;
+  border-color: transparent;
+}
+
+.navbar-toggler span {
+  display: block;
+  background-color: #5199e3;
+  height: 4px;
+  width: 27px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  transform: rotate(0deg);
+  left: 0;
+  opacity: 1;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  outline: 0;
+}
+
+.navbar-toggler span:nth-child(1),
+.navbar-toggler span:nth-child(3) {
+  transition: transform 0.35s ease-in-out;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(1) {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  transform: rotate(135deg);
+  opacity: 0.9;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(2) {
+  height: 12px;
+  visibility: hidden;
+  background-color: gray;
+}
+
+.navbar-toggler:not(.collapsed) span:nth-child(3) {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  transform: rotate(-135deg);
+  opacity: 0.9;
+}
+
+@media (max-width: 767px) {
+  .navbar {
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    background-color: gray;
+  }
+  .navbar-nav .nav-item a::after {
+    display: none;
+  }
+}
+
+.logo {
+  color: black; /* Change logo color to black */
+  border: 2px solid black; /* Change border color to black */
+  padding: 5px 10px;
+}
+
+.logo:hover {
+  color: #5199e3; /* Change logo color on hover */
+  border: 2px solid #5199e3; /* Change border color on hover */
+}
+
+.navbar-nav .nav-link {
+  color: black;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.nav-link {
+  padding: 0.8rem 1rem;
+}
+
+@media (max-width: 767px) {
+  .nav-link {
+    padding: 0.7rem 1rem;
+  }
+}
+
+.navbar-nav .nav-item {
+  position: relative;
+  margin-left: 20px;
+}
+
+.navbar-nav .nav-item a {
+  font-weight: 400;
+  transition: all 0.3s ease-out 0s;
+  position: relative;
+  z-index: 1;
+}
+
+.navbar-nav .nav-item a::after {
+  content: "";
+  position: relative;
+  display: block;
+  height: 5px;
+  width: 0;
+  border-radius: 16px;
+  background: #5199e3;
+  bottom: 1px;
+  left: 0;
+  z-index: -1;
+  transition: all 0.3s ease-out 0s;
+}
+
+.navbar-nav .nav-item a:hover::after {
+  width: 100%;
+}
+
+/* Add padding to the top of the page */
+body {
+  padding-top: 80px; /* Adjust as needed */
+}

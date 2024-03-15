@@ -4,7 +4,10 @@ import "./Home.css"
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div style={{backgroundColor:'red',height:'100vh'}}>
+      lorem100
+      
+    </div>
   )
 }
 
