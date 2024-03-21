@@ -9,16 +9,18 @@ import Contact from './pages/Contact/Contact';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
 const Routers = () => {
   return (
     <Router>
-      <Header />
+      <Header /> 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         <Route path='/login' element={<Login/>}/>
+        <Route path='/register' element={<Register/>}/>
       </Routes>
       <Footer />
     </Router>
