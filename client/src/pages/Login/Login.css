@@ -98,3 +98,30 @@
   background-color: #EAEAEA;
   color: #676767;
 }
+
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 600px) {
+  .login-container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .login-input {
+    width: 100%;
+  }
+
+  .login-input input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .login-submit-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .login-submit {
+    width: 100%;
+  }
+}
