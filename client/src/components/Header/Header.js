@@ -44,12 +44,65 @@ function Header() {
         </Navbar.Toggle>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" defaultActiveKey="#home">
-            <NavItem link="/" text="Home" updateExpanded={updateExpanded} />
-            <NavItem link="/about" text="About" updateExpanded={updateExpanded} />
-            <NavItem link="/services" text="Services" updateExpanded={updateExpanded} />
-            <NavItem link="/contact" text="Contact" updateExpanded={updateExpanded} />
-            <NavItem link="/login" text="Login" updateExpanded={updateExpanded} />
-            <NavItem link="/register" text="Register" updateExpanded={updateExpanded} />
+            <Nav.Item>
+              <Nav.Link as={NavLink} to="/" onClick={() => updateExpanded(false)} activeClassName="active">
+                Home
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={NavLink}
+                to="/about"
+                onClick={() => updateExpanded(false)}
+                activeClassName="active"
+              >
+                About
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={NavLink}
+                to="/services"
+                onClick={() => updateExpanded(false)}
+                activeClassName="active"
+              >
+                Services
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={NavLink}
+                to="/contact"
+                onClick={() => updateExpanded(false)}
+                activeClassName="active"
+              >
+                Contact
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={NavLink}
+                to="/login"
+                onClick={() => updateExpanded(false)}
+                activeClassName="active"
+              >
+                Login
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link
+                as={NavLink}
+                to="/register"
+                onClick={() => updateExpanded(false)}
+                activeClassName="active"
+              >
+                Register
+              </Nav.Link>
+            </Nav.Item>
           </Nav>
         </Navbar.Collapse>
       </Container>
