@@ -36,7 +36,7 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="contact" style={{ padding: '50px 0' }}>
+    <section id="contact" className="contact" style={{ padding: '100px 0' }}>
       <Container>
         <Row>
           <Col lg={6} className="d-flex align-items-center justify-content-center">

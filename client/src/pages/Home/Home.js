@@ -1,9 +1,14 @@
 import React from 'react'
+import Introtext from '../../components/Home/IntroText'
 import "./Home.css"
-
+import Randompicture from '../../components/Home/Randompicturewithinfo'
 const Home = () => {
   return (
-    <div>Home</div>
+  
+    <div>
+      <Randompicture/>
+      <Introtext/>
+    </div>
   )
 }
 
