@@ -1,0 +1,81 @@
+/* Services.css */
+
+.service-container {
+  padding: 50px 0;
+}
+
+.service {
+
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.service h3 {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #004d40;
+}
+
+.service ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.service ul li {
+  margin-bottom: 0.5rem;
+}
+
+.service ul li::before {
+  content: "\2022";
+  color: #ffc107;
+  font-size: 1.2rem;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.service p {
+  margin-top: 1rem;
+  color: #333;
+}
+
+.service img {
+  border-radius: 10px;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+
+.installation-image {
+  border-radius: 10px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.our-commitment-section {
+  background: #5cb85c;
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 50px 0;
+}
+
+.our-commitment-section h2 {
+  color: #ffffff;
+}
+
+.our-commitment-section p {
+  color: #ffffff;
+}
+
+.our-commitment-section .btn-light {
+  background-color: #ffffff;
+  color: #004d40;
+  border-color: #ffffff;
+}
+
+.our-commitment-section .btn-light:hover {
+  background-color: #cccccc;
+  color: #004d40;
+  border-color: #cccccc;
+}
