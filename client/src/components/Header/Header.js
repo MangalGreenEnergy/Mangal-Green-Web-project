@@ -93,16 +93,7 @@ function Header() {
                 Login
               </Nav.Link>
             </Nav.Item>
-            <Nav.Item>
-              <Nav.Link
-                as={NavLink}
-                to="/register"
-                onClick={() => updateExpanded(false)}
-                activeClassName="active"
-              >
-                Register
-              </Nav.Link>
-            </Nav.Item>
+            
           </Nav>
         </Navbar.Collapse>
       </Container>

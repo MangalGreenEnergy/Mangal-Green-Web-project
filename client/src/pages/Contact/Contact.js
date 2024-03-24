@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import "./Contact.css"
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -9,30 +12,27 @@ function Contact() {
     message: ''
   });
   const [messageStatus, setMessageStatus] = useState(null);
-
+  const form = useRef();
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+
+    emailjs
+      .sendForm('service_8byfes8', 'template_qppw32z', form.current, {
+        publicKey: 'gXW-Pbhw4DWF9KJbZ',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
         },
-        body: JSON.stringify(formData),
-      });
-      const data = await response.json();
-      if (response.ok) {
-        setMessageStatus({ type: 'success', message: data.message });
-      } else {
-        setMessageStatus({ type: 'error', message: data.error });
-      }
-    } catch (error) {
-      setMessageStatus({ type: 'error', message: 'An error occurred. Please try again later.' });
-    }
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+      e.target.reset();
   };
 
   return (
@@ -55,32 +55,15 @@ function Contact() {
               <h2>Contact Us</h2>
               <p className="text-muted mb-4">Feel free to get in touch with us. We are available to answer your queries.</p>
               <hr />
-              <Form className="php-email-form" onSubmit={handleSubmit}>
-                <Row className="mb-3">
-                  <Form.Group as={Col} controlId="name">
-                    <Form.Control type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleInputChange} required />
-                  </Form.Group>
-                  <Form.Group as={Col} controlId="email">
-                    <Form.Control type="email" name="email" placeholder="Your Email" value={formData.email} onChange={handleInputChange} required />
-                  </Form.Group>
-                </Row>
-                <Form.Group className="mb-3" controlId="subject">
-                  <Form.Control type="text" name="subject" placeholder="Subject" value={formData.subject} onChange={handleInputChange} required />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="message">
-                  <Form.Control as="textarea" rows={5} name="message" placeholder="Message" value={formData.message} onChange={handleInputChange} required />
-                </Form.Group>
-                <div className="my-3">
-                  {messageStatus && (
-                    <div className={`alert alert-${messageStatus.type}`} role="alert">
-                      {messageStatus.message}
-                    </div>
-                  )}
-                </div>
-                <div className="text-center">
-                  <Button type="submit" className="btn-lg btn-primary">Send Message</Button>
-                </div>
-              </Form>
+              <form ref={form} onSubmit={sendEmail} className="contact-form">
+  <input type='text' placeholder='Full name' name='user_name' required className="input-field"></input>
+  <input type='email' placeholder='Email' name='user_email' required className="input-field"></input>
+  <input type='text' placeholder='Subject' name='subject' required className="input-field"></input>
+  <textarea name='message' cols="30" rows="10" placeholder="Your message" className="textarea-field"></textarea>
+  <button type='submit' className="submit-button">Send Message</button>
+</form>
+
+              
             </div>
           </Col>
         </Row>

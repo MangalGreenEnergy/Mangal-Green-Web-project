@@ -22,6 +22,7 @@ const Footer = () => {
               </li>
               <li>
                 <FaPhone /> <a href="tel:+919370209686">+91 9370209686</a>
+                <FaPhone /> <a href="tel:+919657649905">+91 9657649905</a>
               </li>
               <li>
                 <FaEnvelope /> <a href="mailto:mangalgreenenergy3@gmail.com">mangalgreenenergy3@gmail.com</a>
@@ -32,7 +33,7 @@ const Footer = () => {
             <h5>Follow Us</h5>
             <ul className="list-unstyled">
               <li>
-                <a href="#">Facebook</a>
+                <a href="https://www.facebook.com/profile.php?id=61557162947667">Facebook</a>
               </li>
               <li>
                 <a href="#">Twitter</a>
