@@ -48,7 +48,7 @@ const Footer = () => {
         <Row>
           <Col className="text-center">
             <p className="mb-0">
-              &copy; {new Date().getFullYear()} Your Solar Company. All rights
+              &copy; {new Date().getFullYear()} Mangal Green Energy. All rights
               reserved.
             </p>
           </Col>
