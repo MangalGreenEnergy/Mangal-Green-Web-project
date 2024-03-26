@@ -99,6 +99,9 @@
   color: #676767;
 }
 
+.login-input input::placeholder {
+  text-align: center; /* Center-align placeholder text */
+}
 
 /* Media Query for Mobile Devices */
 @media only screen and (max-width: 600px) {
@@ -109,6 +112,8 @@
 
   .login-input {
     width: 100%;
+    color: red;
+
   }
 
   .login-input input {
@@ -123,5 +128,6 @@
 
   .login-submit {
     width: 100%;
+    padding: 20px;
   }
 }
