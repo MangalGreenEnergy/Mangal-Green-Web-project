@@ -71,6 +71,16 @@ function Header() {
                 Services
               </Nav.Link>
             </Nav.Item>
+            <Nav.Item>
+              <Nav.Link
+                as={NavLink}
+                to="/team"
+                onClick={() => updateExpanded(false)}
+                activeClassName="active"
+              >
+                Our Team
+              </Nav.Link>
+            </Nav.Item>
 
             <Nav.Item>
               <Nav.Link
