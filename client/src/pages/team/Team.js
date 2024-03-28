@@ -11,7 +11,7 @@ const Team = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 600);
+        }, 400);
 
         return () => clearTimeout(timer);
     }, []);
@@ -29,7 +29,7 @@ const Team = () => {
                     </div>
                 </div>
             ) : (
-                <div>
+                <div className='whole-page'>
                    <h2 className="section-heading">Our Team</h2>
                     <div className="home-container">
             {profileData.map((profile, index) => (
