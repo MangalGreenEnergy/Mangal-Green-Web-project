@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import "./Contact.css"
@@ -11,7 +11,6 @@ function Contact() {
     subject: '',
     message: ''
   });
-  const [messageStatus, setMessageStatus] = useState(null);
   const form = useRef();
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

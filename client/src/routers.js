@@ -9,6 +9,7 @@ import Contact from './pages/Contact/Contact';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Login from './pages/Login/Login';
+import Team from './pages/team/Team';
 const Routers = () => {
   return (
     <Router>
@@ -19,6 +20,7 @@ const Routers = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         <Route path='/login' element={<Login/>}/>
+        <Route path='/team' element={<Team/>}/>
       </Routes>
       <Footer />
     </Router>
