@@ -3,6 +3,7 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import "./About.css"; // Import custom CSS for additional styling
 import solarPanelImage from "../../assets/Images/Slider1.png"; // Importing local image
 import StatsComponent from "../../components/About/StatsComponent";
+import Testimonial from "../../components/testiomonial/Testimonial";
 
 const About = () => {
   return (
@@ -48,6 +49,7 @@ const About = () => {
           </Col>
         </Row>
         <StatsComponent/>
+      <Testimonial/>
       </Container>
     </section>
   );

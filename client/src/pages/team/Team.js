@@ -11,7 +11,7 @@ const Team = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 400);
+        }, 500);
 
         return () => clearTimeout(timer);
     }, []);
@@ -39,6 +39,7 @@ const Team = () => {
              </div>
                
             )}
+
       
     </div>
     
