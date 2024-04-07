@@ -4,8 +4,9 @@ require('dotenv').config();
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGODB_URI, {
+      useUnifiedTopology: true,
       useNewUrlParser: true,
-      useUnifiedTopology: true
+      dbName: "mangalgreen"
     });
     console.log('Connected to MongoDB Atlas');
   } catch (error) {
