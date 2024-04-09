@@ -2,28 +2,7 @@ import React from 'react'
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-
-// const addresses = [
-//     {
-//       name: 'Leslie Alexander',
-//       email: 'leslie.alexander@example.com',
-//       role: 'Co-Founder / CEO',
-//       imageUrl:
-//         'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-//       lastSeen: '3h ago',
-//       lastSeenDateTime: '2023-01-23T13:23Z',
-//     },
-//     {
-//       name: 'Michael Foster',
-//       email: 'michael.foster@example.com',
-//       role: 'Co-Founder / CTO',
-//       imageUrl:
-//         'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-//       lastSeen: '3h ago',
-//       lastSeenDateTime: '2023-01-23T13:23Z',
-//     },
-    
-//   ]
+import Navbar from '../features/navbar/Navbar';
 
 const addresses = [
     {
@@ -76,6 +55,7 @@ const Checkout = () => {
   const [open, setOpen] = useState(true);
 
   return (
+    <Navbar>
     <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className='lg:col-span-3'>
          <form>
@@ -411,6 +391,7 @@ const Checkout = () => {
     </div>
 
     </div>
+    </Navbar>
   )
 }
 
