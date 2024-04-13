@@ -34,13 +34,12 @@ const Home = () => {
 
   return (
     <Navbar>
-      <ProductList />
-      {!isEmailVerified && (
+      {(isEmailVerified )? (
         <div>
           <p>Your email is not verified. Please check your inbox for a verification email.</p>
           <button onClick={handleVerification}>Resend Verification Email</button>
         </div>
-      )}
+      ): <ProductList />}
     </Navbar>
   );
 };
