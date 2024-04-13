@@ -1,17 +1,7 @@
-// import React from 'react'
-// import Navbar from '../features/navbar/Navbar'
-// import ProductList from '../features/product-list/ProductList'
-// const Home = () => {
-//   return (
-//     <Navbar>
-//         <ProductList/>
-//     </Navbar>
-//   )
-// }
-
-// export default Home
 import React, { useState, useEffect } from 'react';
 import { auth } from '../firebase'; // Import your firebase configuration
+import Navbar from '../features/navbar/Navbar';
+import ProductList from '../features/product-list/ProductList';
 
 const Home = () => {
   const [isEmailVerified, setIsEmailVerified] = useState(false);
@@ -29,14 +19,29 @@ const Home = () => {
     return () => unsubscribe();
   }, []);
 
+  const handleVerification = () => {
+    const user = auth.currentUser;
+    if (user) {
+      user.sendEmailVerification()
+        .then(() => {
+          alert('Verification email sent. Please check your inbox.');
+        })
+        .catch(error => {
+          console.error('Error sending verification email:', error);
+        });
+    }
+  };
+
   return (
-    <div>
-      {isEmailVerified ? (
-        <p>Your email is verified.</p>
-      ) : (
-        <p>Your email is not verified. Please check your inbox for a verification email.</p>
+    <Navbar>
+      <ProductList />
+      {!isEmailVerified && (
+        <div>
+          <p>Your email is not verified. Please check your inbox for a verification email.</p>
+          <button onClick={handleVerification}>Resend Verification Email</button>
+        </div>
       )}
-    </div>
+    </Navbar>
   );
 };
 

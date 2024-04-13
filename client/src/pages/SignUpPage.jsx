@@ -18,7 +18,8 @@ const SignUpPage = () => {
       const userCredential = await auth.createUserWithEmailAndPassword(email, password);
       // Send email verification
       await userCredential.user.sendEmailVerification();
-      // Redirect or show a success message
+      // Redirect to home page and reload
+      window.location.href = '/';
     } catch (error) {
       setError(error.message);
     }
@@ -109,7 +110,7 @@ const SignUpPage = () => {
 
         <p className="mt-10 text-center text-sm text-gray-500">
           Already Registered{' '}
-          <Link to="./login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+          <Link to="/" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
             Log In
           </Link>
         </p>
