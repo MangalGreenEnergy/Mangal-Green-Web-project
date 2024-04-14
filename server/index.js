@@ -21,9 +21,6 @@ app.get("/", (req, res) => {
   res.send("Hello, I am live");
 });
 
-app.get("/api/newone", (req, res) => {
-  res.send("Hello, check it working or not");
-});
 
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
