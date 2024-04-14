@@ -6,12 +6,14 @@ const userRoutes = require("./app/routers/userRoutes");
 const productRoutes = require("./app/routers/productRoutes");
 
 const app = express();
+const corsConfig={
+  origin:["*"], 
+  Credential:true,
+  methods:["GET","PUT","POST","DELETE"]
+}
 
-app.use(cors({
-  origin:["http://localhost:3000"], // Update with your frontend URL
-  methods:["POST","GET"],
-  credentials:true
-})); // Enable CORS
+app.options("",cors(corsConfig));
+app.use(cors(corsConfig)); // Enable CORS
 
 app.use(bodyParser.json());
 
