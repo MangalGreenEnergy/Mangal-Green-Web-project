@@ -7,9 +7,18 @@ const productRoutes = require("./app/routers/productRoutes");
 
 const app = express();
 
-app.use(cors()); // Enable CORS
+app.use(cors({
+  origin:["http://localhost:3000"], // Update with your frontend URL
+  methods:["POST","GET"],
+  credentials:true
+})); // Enable CORS
 
 app.use(bodyParser.json());
+
+app.get("/", (req, res) => {
+  res.send("Hello, I am live");
+});
+
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
 
