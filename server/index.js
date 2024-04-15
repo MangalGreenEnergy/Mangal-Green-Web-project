@@ -7,7 +7,7 @@ const productRoutes = require("./app/routers/productRoutes");
 
 const app = express();
 const corsConfig={
-  origin:["*"], 
+  origin:'*', 
   Credential:true,
   methods:["GET","PUT","POST"]
 }
