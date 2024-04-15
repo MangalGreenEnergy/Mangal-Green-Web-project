@@ -4,12 +4,15 @@ import Home from './pages/Home';
 import LoginInPage from './pages/LoginInPage';
 import SignUpPage from './pages/SignUpPage';
 import Cart from './pages/Cart';
+import CartPage from './pages/CartPage';
 import Checkout from './pages/Checkout';
 import ProductInfo from './pages/ProductInfo';
 import ProductDetail from './pages/ProductDetail';
 import { auth } from './firebase';
 
+
 const Router = () => {
+  
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -32,7 +35,7 @@ const Router = () => {
         {currentUser ? (
           <>
             <Route path="/" element={<Home />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/cart" element={<CartPage />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/productinfo/:productId" element={<ProductInfo />} />
             <Route path="/productDetail" element={<ProductDetail />} />

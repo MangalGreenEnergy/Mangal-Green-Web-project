@@ -4,12 +4,12 @@ const connectDB = require("./config/db");
 const bodyParser = require("body-parser");
 const userRoutes = require("./app/routers/userRoutes");
 const productRoutes = require("./app/routers/productRoutes");
-
+const cartRouters = require("./app/routers/cartRoutes")
 const app = express();
 const corsConfig={
   origin:'*', 
   Credential:true,
-  methods:["GET","PUT","POST"]
+  methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
 }
 
 app.options("",cors(corsConfig));
@@ -24,6 +24,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
+app.use("/api/cart", cartRouters);
 
 connectDB();
 
