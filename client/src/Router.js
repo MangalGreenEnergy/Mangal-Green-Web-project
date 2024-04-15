@@ -5,6 +5,7 @@ import LoginInPage from './pages/LoginInPage';
 import SignUpPage from './pages/SignUpPage';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
+import ProductInfo from './pages/ProductInfo';
 import ProductDetail from './pages/ProductDetail';
 import { auth } from './firebase';
 
@@ -33,7 +34,8 @@ const Router = () => {
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
-            <Route path="/productdetail" element={<ProductDetail />} />
+            <Route path="/productinfo/:productId" element={<ProductInfo />} />
+            <Route path="/productDetail" element={<ProductDetail />} />
           </>
         ) : (
           <>

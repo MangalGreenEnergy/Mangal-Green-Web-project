@@ -11,7 +11,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom';
 import axios from 'axios'
-
+import SelectorFilters from './SelectorFilters';
 
 const sortOptions = [
   { name: 'Newest', href: '#', current: false },
@@ -30,6 +30,7 @@ const subCategories = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
+
 
 
 export default function ProductList() {
@@ -64,10 +65,11 @@ export default function ProductList() {
 
   const toggleCategory = (index) => {
     setCategories(prevCategories => {
-      const updatedCategories = [...prevCategories];
-      updatedCategories[index].selected = !updatedCategories[index].selected;
-      return updatedCategories;
+      return prevCategories.map((category, i) =>
+        i === index ? { ...category, selected: !category.selected } : category
+      );
     });
+  
   };
 
   const filteredProducts = products.filter(product => {
@@ -119,24 +121,10 @@ export default function ProductList() {
 
                     {/* Filters */}
                     <form className="mt-4 border-t border-gray-200">
+                    <h1 className="text-xl font-semibold mb-4">Filters</h1>
+              
+                    <SelectorFilters type="categories" options={categories} setOptions={setCategories} />
 
-                      {categories.map((category, index) => (
-                        <div key={category.name} className="flex items-center">
-                          <input
-                            id={`filter-mobile-${index}`}
-                            type="checkbox"
-                            checked={category.selected}
-                            onChange={() => toggleCategory(index)}
-                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                          />
-                          <label
-                            htmlFor={`filter-mobile-${index}`}
-                            className="ml-3 min-w-0 flex-1 text-gray-500"
-                          >
-                            {category.name}
-                          </label>
-                        </div>
-                      ))}
                     </form>
                   </Dialog.Panel>
                 </Transition.Child>
@@ -215,25 +203,9 @@ export default function ProductList() {
               <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                 {/* Filters */}
                 <form className="hidden lg:block">
-
-
-                  {categories.map((category, index) => (
-                    <div key={category.name} className="flex items-center">
-                      <input
-                        id={`filter-mobile-${index}`}
-                        type="checkbox"
-                        checked={category.selected}
-                        onChange={() => toggleCategory(index)}
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                      />
-                      <label
-                        htmlFor={`filter-mobile-${index}`}
-                        className="ml-3 min-w-0 flex-1 text-gray-500"
-                      >
-                        {category.name}
-                      </label>
-                    </div>
-                  ))}
+                <h1 className="text-xl font-semibold mb-4">Filters</h1>
+              
+                <SelectorFilters type="categories" options={categories} setOptions={setCategories} />
                 </form>
 
                 {/* Product grid */}
@@ -242,6 +214,7 @@ export default function ProductList() {
                     <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
                       <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
                         {filteredProducts.map((product) => (
+                            <Link to={`/productinfo/${product._id}`}>
 
                           <div className="group relative">
                             <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
@@ -266,6 +239,7 @@ export default function ProductList() {
                               <p className="text-sm font-medium text-gray-900">{`$${product.Price}`}</p>
                             </div>
                           </div>
+                          </Link>
 
                         ))}
                       </div>
